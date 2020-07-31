@@ -1,0 +1,20 @@
+file(GLOB UTILS_SRCS *.cc)
+add_library(utils SHARED ${UTILS_SRCS})
+target_include_directories(
+  utils
+  PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../>"
+  PUBLIC "$<BUILD_INTERFACE:${OpenCV_INCLUDE_DIRS};${TORCH_INCLUDE_DIRS}>")
+target_link_libraries(utils PUBLIC ${OpenCV_LIBS} ${TORCH_LIBRARIES})
+
+install(
+  TARGETS utils
+  EXPORT Example
+  RUNTIME DESTINATION bin
+  LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib)
+
+install(
+  DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
+  DESTINATION include
+  FILES_MATCHING
+  PATTERN "*.h")
