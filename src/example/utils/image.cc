@@ -1,4 +1,4 @@
-#include "utils/image.h"
+#include "example/utils/image.h"
 
 void draw_bboxes_on_mask(cv::Mat mask,
                          const std::vector<std::vector<int>> &bboxes) {

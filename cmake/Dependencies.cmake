@@ -1,0 +1,2 @@
+find_package(OpenCV REQUIRED PATHS ${CMAKE_PREFIX_PATH} NO_DEFAULT_PATH)
+find_package(Torch REQUIRED)

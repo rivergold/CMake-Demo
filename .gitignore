@@ -44,3 +44,6 @@ _deps
 *.app
 
 /example/thirdparty/
+
+*build/
+/thirdparty/*
