@@ -1,0 +1,24 @@
+# FindExample
+# --------------
+#
+# Finds the Autoeraser library
+#
+# This will define the following variables:
+#
+#   EXAMPLE_FOUND        -- True if the system has the Torch library
+#   EXAMPLE_INCLUDE_DIRS -- The include directories for torch
+#   EXAMPLE_LIBRARIES    -- Libraries to link against
+#   EXAMPLE_CXX_FLAGS    -- Additional (required) compiler flags
+#
+# and the following imported targets:
+#
+#   Example
+
+set(EXAMPLE_VERSION v1.0.0)
+@PACKAGE_INIT@
+
+set_and_check(EXAMPLE_INCLUDE_DIRS "@PACKAGE_EXAMPLE_INCLUDE_DIRS@")
+set_and_check(EXAMPLE_LIB_DIRS "@PACKAGE_EXAMPLE_LIB_DIRS@")
+file(GLOB_RECURSE EXAMPLE_LIBRARIES ${EXAMPLE_LIB_DIRS}/*.so)
+
+check_required_components(Example)
